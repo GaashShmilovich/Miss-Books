@@ -5,7 +5,7 @@ import bookList from '../data/books.json'assert{type: 'json'}
 const PAGE_SIZE = 5
 const BOOK_KEY = 'bookDB'
 
-var gFilterBy = { title: '', minSpeed: 0 }
+var gFilterBy = { title: '', price: 0 }
 var gSortBy = { title: 1 }
 var gPageIdx
 
@@ -32,8 +32,8 @@ function query() {
                 const regex = new RegExp(gFilterBy.title, 'i')
                 books = books.filter(book => regex.test(book.title))
             }
-            if (gFilterBy.minSpeed) {
-                books = books.filter(book => book.listPrice.amount >= gFilterBy.minSpeed)
+            if (gFilterBy.price) {
+                books = books.filter(book => book.listPrice.amount >= gFilterBy.price)
             }
             if (gPageIdx !== undefined) {
                 const startIdx = gPageIdx * PAGE_SIZE
@@ -75,7 +75,7 @@ function getFilterBy() {
 
 function setFilterBy(filterBy = {}) {
     if (filterBy.title !== undefined) gFilterBy.title = filterBy.title
-    if (filterBy.minSpeed !== undefined) gFilterBy.minSpeed = filterBy.minSpeed
+    if (filterBy.minSpeed !== undefined) gFilterBy.price = filterBy.price
     return gFilterBy
 }
 

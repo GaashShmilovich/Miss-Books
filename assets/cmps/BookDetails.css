@@ -6,9 +6,9 @@
 
 .book-details img {
   position: absolute;
-  top: 10px;
+  top: 22.5px;
   right: 10px;
-  width: 120px;
+  width: 80px;
   transition: 400ms;
 }
 

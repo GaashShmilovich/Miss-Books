@@ -39,7 +39,8 @@ export default {
                 })
         },
         selectBook(bookId) {
-            this.selectedBook = this.Books.find(book => book.id === bookId)
+            console.log('bookId', bookId)
+            this.selectedBook = this.books.find(book => book.id === bookId)
         },
         saveBook(bookToSave) {
             bookService.save(bookToSave)
@@ -51,8 +52,13 @@ export default {
     },
     computed: {
         filteredBooks() {
+            let filteredBooks = this.books
             const regex = new RegExp(this.filterBy.txt, 'i')
-            return this.books.filter(book => regex.test(book.title))
+            filteredBooks = filteredBooks.filter(book => regex.test(book.title))
+            if (this.filterBy.price) {
+                filteredBooks = filteredBooks.filter(book => book.listPrice.amount <= this.filterBy.price)
+            }
+            return filteredBooks
         }
     },
     created() {
