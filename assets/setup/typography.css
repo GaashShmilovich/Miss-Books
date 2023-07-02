@@ -1,0 +1,131 @@
+/* Remote Font */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+/* Local Font - Normal Style  */
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-thin-webfont.woff2");
+  font-style: normal;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-light-webfont.woff2");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-regular-webfont.woff2");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-medium-webfont.woff2");
+  font-style: normal;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-bold-webfont.woff2");
+  font-style: normal;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-black-webfont.woff2");
+  font-style: normal;
+  font-weight: 900;
+}
+
+/* Local Font - Italic Style */
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-thinitalic-webfont.woff2");
+  font-style: italic;
+  font-weight: 100;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-lightitalic-webfont.woff2");
+  font-style: italic;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-italic-webfont.woff2");
+  font-style: italic;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-mediumitalic-webfont.woff2");
+  font-style: italic;
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-blackitalic-webfont.woff2");
+  font-style: italic;
+  font-weight: 700;
+}
+
+@font-face {
+  font-family: Roboto;
+  src: url("../../fonts/Roboto/roboto-blackitalic-webfont.woff2");
+  font-style: italic;
+  font-weight: 900;
+}
+
+/* Local Font - Font Awesome */
+
+@font-face {
+  font-family: fa;
+  src: url("../../fonts/fa/fa-brands-400.ttf");
+}
+
+.fa::before {
+  font-family: fa;
+}
+
+.fa.facebook::before {
+  content: "\f39e";
+}
+
+.fa.twitter::before {
+  content: "\f099";
+}
+
+.fa.behance::before {
+  content: "\f1b4";
+}
+
+.fa.instagram::before {
+  content: "\f16d";
+}
+
+@font-face {
+  font-family: fa-solid;
+  src: url("../../fonts/fa/fa-solid-900.ttf");
+}
+
+.fa-solid::before {
+  font-family: fa-solid;
+}
+
+.fa-solid.music::before {
+  content: "\f001";
+}
