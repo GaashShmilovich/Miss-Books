@@ -3,7 +3,7 @@ export default {
     template: `
         <section class="book-details">
             <h2>{{ book.title }}</h2>
-            <h3>{{ book.maxSpeed }}</h3>
+            <h3>{{ book.listPrice.amount }}{{book.listPrice.currencyCode}}</h3>
             <img :src="imgSrc" alt="">
             <button @click="onClose">close</button>
         </section>

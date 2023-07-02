@@ -3,9 +3,9 @@ import { storageService } from './async-storage.service.js'
 import bookList from '../data/books.json'assert{type: 'json'}
 
 const PAGE_SIZE = 5
-const BOOK_KEY = 'carDB'
+const BOOK_KEY = 'bookDB'
 
-var gFilterBy = { txt: '', minSpeed: 0 }
+var gFilterBy = { title: '', minSpeed: 0 }
 var gSortBy = { title: 1 }
 var gPageIdx
 
@@ -28,12 +28,12 @@ window.bookService = bookService
 function query() {
     return storageService.query(BOOK_KEY)
         .then(books => {
-            if (gFilterBy.txt) {
-                const regex = new RegExp(gFilterBy.txt, 'i')
+            if (gFilterBy.title) {
+                const regex = new RegExp(gFilterBy.title, 'i')
                 books = books.filter(book => regex.test(book.title))
             }
             if (gFilterBy.minSpeed) {
-                books = books.filter(book => book.price >= gFilterBy.minSpeed)
+                books = books.filter(book => book.listPrice.amount >= gFilterBy.minSpeed)
             }
             if (gPageIdx !== undefined) {
                 const startIdx = gPageIdx * PAGE_SIZE
@@ -74,7 +74,7 @@ function getFilterBy() {
 }
 
 function setFilterBy(filterBy = {}) {
-    if (filterBy.txt !== undefined) gFilterBy.txt = filterBy.txt
+    if (filterBy.title !== undefined) gFilterBy.title = filterBy.title
     if (filterBy.minSpeed !== undefined) gFilterBy.minSpeed = filterBy.minSpeed
     return gFilterBy
 }
