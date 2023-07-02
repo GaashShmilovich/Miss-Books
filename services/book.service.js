@@ -1,5 +1,6 @@
 import { utilService } from './util.service.js'
 import { storageService } from './async-storage.service.js'
+import bookList from '../data/books.json'assert{type: 'json'}
 
 const PAGE_SIZE = 5
 const BOOK_KEY = 'carDB'
@@ -103,17 +104,8 @@ function getNextBookId(bookId) {
 function _createBooks() {
     let books = utilService.loadFromStorage(BOOK_KEY)
     if (!books || !books.length) {
-        books = []
-        books.push(_createBook('audu', 300))
-        books.push(_createBook('fiak', 120))
-        books.push(_createBook('subali', 100))
-        books.push(_createBook('mitsu', 150))
+        books = bookList
+
         utilService.saveToStorage(BOOK_KEY, books)
     }
-}
-
-function _createBook(title, price = 250) {
-    const book = getEmptyBook(title, price)
-    book.id = utilService.makeId()
-    return book
 }
