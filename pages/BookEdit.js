@@ -1,11 +1,10 @@
 import { bookService } from "../services/book.service.js"
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 export default {
     template: `
 
         <form @submit.prevent="save" class="book-edit">
-            <h2>{{(bookToEdit.id)? 'Edit' : 'Add'}} a Book</h2>
+            <h2>Add a Book</h2>
             <input v-model="bookToEdit.title" type="text" placeholder="Enter title">
             <input v-model.number="bookToEdit.listPrice.amount" type="number" >
             <RouterLink to="/book">Cancel</RouterLink>
@@ -25,7 +24,7 @@ export default {
                 this.bookToEdit = book
             })
             .catch(err => {
-                showErrorMsg('Can not load book for edit')
+                alert('Cannot load book')
                 this.$router.push('/book')
             })
 
@@ -34,11 +33,7 @@ export default {
         save() {
             bookService.save(this.bookToEdit)
                 .then(savedBook => {
-                    showSuccessMsg('Car saved')
                     this.$router.push('/book')
-                })
-                .catch(err => {
-                    showErrorMsg('Can not save book')
                 })
         }
     }

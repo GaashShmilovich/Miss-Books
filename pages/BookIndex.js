@@ -2,7 +2,6 @@ import { bookService } from '../services/book.service.js'
 
 import BookFilter from '../cmps/BookFilter.js'
 import BookList from '../cmps/BookList.js'
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 
 export default {
@@ -28,11 +27,6 @@ export default {
                 .then(() => {
                     const idx = this.books.findIndex(book => book.id === bookId)
                     this.books.splice(idx, 1)
-                    showSuccessMsg('Book removed')
-                })
-                .catch(err => {
-                    alert('Cannot remove car')
-                    showErrorMsg('Can not remove book')
                 })
         },
         setFilterBy(filterBy) {
@@ -51,6 +45,7 @@ export default {
         }
     },
     created() {
+        console.log('hi')
         bookService.query()
             .then(books => {
                 console.log(books)
