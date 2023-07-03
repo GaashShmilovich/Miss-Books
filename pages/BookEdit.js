@@ -5,10 +5,9 @@ export default {
     template: `
 
         <form @submit.prevent="save" class="book-edit">
-            <h2>{{(bookToEdit.id)? 'Edit' : 'Add'}} a Book</h2>
+            <h2>Add a Book</h2>
             <input v-model="bookToEdit.title" type="text" placeholder="Enter title">
             <input v-model.number="bookToEdit.listPrice.amount" type="number" >
-            <RouterLink to="/book">Cancel</RouterLink>
             <button>save</button>
         </form>
     `,
