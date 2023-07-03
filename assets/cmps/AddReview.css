@@ -1,0 +1,23 @@
+.add-review {
+  margin-top: 20px;
+}
+
+.add-review form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.add-review label {
+  font-weight: bold;
+}
+
+.add-review input,
+.add-review select {
+  width: 200px;
+  padding: 5px;
+}
+
+.add-review button {
+  padding: 10px;
+}

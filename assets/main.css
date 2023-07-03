@@ -9,13 +9,14 @@
 @import "base/forms.css";
 
 /* Components */
-
+@import "cmps/UserMsg.css";
 @import "cmps/app.css";
 @import "cmps/AppHeader.css";
 @import "cmps/AppFooter.css";
 
 @import "cmps/BookDetails.css";
 @import "cmps/BookEdit.css";
+@import "cmps/AddReview.css";
 
 @import "cmps/BookFilter.css";
 @import "cmps/BookList.css";

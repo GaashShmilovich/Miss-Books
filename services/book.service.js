@@ -21,6 +21,7 @@ export const bookService = {
     getNextBookId: getNextBookId,
     getFilterBy,
     setFilterBy,
+    addReview,
     // getCarCountBySpeedMap
 }
 window.bookService = bookService
@@ -63,6 +64,17 @@ function save(book) {
     } else {
         return storageService.post(BOOK_KEY, book)
     }
+}
+
+function addReview(bookId, review) {
+    return get(bookId)
+        .then(book => {
+            if (!book.reviews) {
+                book.reviews = []
+            }
+            book.reviews.push(review)
+            return save(book)
+        })
 }
 
 function getEmptyBook(title = '', price = 0) {
