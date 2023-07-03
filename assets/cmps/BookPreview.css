@@ -5,3 +5,11 @@
 .book-preview h3 {
   font-size: 16px;
 }
+
+.book-preview .cheap {
+  color: green;
+}
+
+.book-preview .pricey {
+  color: crimson;
+}

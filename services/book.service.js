@@ -66,7 +66,7 @@ function save(book) {
 }
 
 function getEmptyBook(title = '', price = 0) {
-    return { id: '', title, price }
+    return { id: '', title, listPrice: { amount: price } }
 }
 
 function getFilterBy() {

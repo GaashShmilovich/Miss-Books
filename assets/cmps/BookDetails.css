@@ -15,3 +15,11 @@
 .book-details img:hover {
   rotate: -10deg;
 }
+
+.book-details .pricey {
+  color: crimson;
+}
+
+.book-details .cheap {
+  color: green;
+}
