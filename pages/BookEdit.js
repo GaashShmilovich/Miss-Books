@@ -1,5 +1,4 @@
 import { bookService } from "../services/book.service.js"
-import { showSuccessMsg, showErrorMsg } from '../services/event-bus.service.js'
 
 export default {
     template: `
@@ -24,7 +23,7 @@ export default {
                 this.bookToEdit = book
             })
             .catch(err => {
-                showErrorMsg('Can not load book for edit')
+                alert('Cannot load book')
                 this.$router.push('/book')
             })
 
@@ -33,11 +32,7 @@ export default {
         save() {
             bookService.save(this.bookToEdit)
                 .then(savedBook => {
-                    showSuccessMsg('Car saved')
                     this.$router.push('/book')
-                })
-                .catch(err => {
-                    showErrorMsg('Can not save book')
                 })
         }
     }
