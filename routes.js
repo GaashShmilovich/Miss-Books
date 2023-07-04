@@ -3,22 +3,9 @@ import HomePage from './pages/HomePage.js'
 import AboutPage from './pages/AboutUs.js'
 import BookDetails from './pages/BookDetails.js'
 import BookEdit from './pages/BookEdit.js'
+import BookAdd from './cmps/BookAdd.js'
 
 const { createRouter, createWebHashHistory } = VueRouter
-
-const AboutTeam = {
-    template: `<section>
-        <h1>Our Team</h1>
-        <p>Our team is amazing</p>
-    </section>`
-}
-const AboutGoals = {
-    template: `<section>
-        <h1>Our Goals</h1>
-        <p>Our goals are awesome</p>
-    </section>`
-}
-
 
 const options = {
     history: createWebHashHistory(),
@@ -34,6 +21,10 @@ const options = {
         {
             path: '/book',
             component: BookIndex
+        },
+        {
+            path: '/add',
+            component: BookAdd
         },
         {
             path: '/book/:bookId',

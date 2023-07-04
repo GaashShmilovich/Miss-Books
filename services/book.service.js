@@ -21,6 +21,8 @@ export const bookService = {
     getNextBookId: getNextBookId,
     getFilterBy,
     setFilterBy,
+    getGoogleBooks,
+    addBookFromGoogle,
     // getCarCountBySpeedMap
 }
 window.bookService = bookService
@@ -65,6 +67,42 @@ function _setNextPrevBookId(book) {
             return book
         })
 }
+
+function getGoogleBooks() {
+    return Promise.resolve(
+        [
+            {
+                title: 'Harry Potter',
+                id: 'abc1'
+            },
+            {
+                title: 'Harry Potter 2',
+                id: 'abc2'
+            },
+            {
+                title: 'Harry Potter 3',
+                id: 'abc3'
+            },
+        ]
+    )
+}
+
+function addBookFromGoogle(book) {
+    //     return storageService.get(BOOK_KEY, book.id)
+    //         .catch((err) => {
+    //             console.log(err)
+    //             console.log('adding book', book)
+    //             return storageService.post(BOOK_KEY, book)
+
+    //         }).then(res => {
+    //             // if (res) return
+    //         })
+
+    const books = storageService.query(BOOK_KEY)
+    console.log(books)
+    console.log(book)
+}
+
 function remove(bookId) {
     return storageService.remove(BOOK_KEY, bookId)
 }
