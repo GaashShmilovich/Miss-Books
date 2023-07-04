@@ -18,8 +18,9 @@ export default {
             <h4>Reviews:</h4>
             <section class="reviews" v-for="review in book.reviews" :key="review.id">
                 <span> {{ review.date }} </span> <span> {{ review.name }} </span> rating: <span>{{review.rating}}</span>  <button @click="removeReview(index)">X</button>
-              
             </section>
+            <RouterLink :to="'/book/' + book.prevBookId">Previous book</RouterLink> |
+            <RouterLink :to="'/book/' + book.nextBookId">Next book</RouterLink>
             <RouterLink to="/book" class="back-link">Back to list</RouterLink>
         </section>
     `,
@@ -29,15 +30,7 @@ export default {
         }
     },
     created() {
-        const { bookId } = this.$route.params
-        bookService.get(bookId)
-            .then(book => {
-                this.book = book
-            })
-            .catch(err => {
-                alert('Cannot load book')
-                this.$router.push('/book')
-            })
+        this.loadBook()
     },
     methods: {
         getPrice(price) {
@@ -47,8 +40,24 @@ export default {
         removeReview(reviewIndex) {
             this.book.reviews.splice(reviewIndex, 1)
             bookService.save(this.book)
+        },
+        loadBook() {
+            const { bookId } = this.$route.params
+            bookService.get(bookId)
+                .then(book => {
+                    this.book = book
+                })
+                .catch(err => {
+                    alert('Cannot load book')
+                    this.$router.push('/book')
+                })
         }
 
+    },
+    watch: {
+        '$route.params.bookId'() {
+            this.loadBook()
+        }
     },
     computed: {
         imgSrc() {
